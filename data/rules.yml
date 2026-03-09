@@ -1,0 +1,60 @@
+version: "3.1"
+
+rules:
+  - rule: respond to greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: jumbo faq behavior
+    steps:
+      - intent: ask_jumbo_loan
+      - action: utter_faq_jumbo
+
+  - rule: government faq behavior
+    steps:
+      - intent: ask_government_loan
+      - action: utter_faq_government
+
+  - rule: callback behavior
+    steps:
+      - intent: request_callback
+      - action: callback_form
+      - active_loop: callback_form
+
+  - rule: fallback behavior
+    steps:
+      - intent: fallback
+      - action: utter_fallback
+
+  - rule: submit lead capture form
+    condition:
+      - active_loop: lead_capture_form
+    steps:
+      - action: lead_capture_form
+      - active_loop: null
+      - action: action_submit_lead_capture
+
+  - rule: submit callback form
+    condition:
+      - active_loop: callback_form
+    steps:
+      - action: callback_form
+      - active_loop: null
+      - action: action_submit_callback
+
+  - rule: submit followup issue form
+    condition:
+      - active_loop: followup_issue_form
+    steps:
+      - action: followup_issue_form
+      - active_loop: null
+      - action: action_submit_followup
+
+  - rule: submit qualification form
+    condition:
+      - active_loop: qualification_form
+    steps:
+      - action: qualification_form
+      - active_loop: null
+      - action: utter_submit_confirmation

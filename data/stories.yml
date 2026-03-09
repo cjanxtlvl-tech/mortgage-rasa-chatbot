@@ -1,0 +1,59 @@
+version: "3.1"
+
+stories:
+  - story: purchase lead flow
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_purchase_loan
+      - action: utter_ask_loan_type
+      - intent: start_prequalification
+      - action: qualification_form
+      - active_loop: qualification_form
+      - active_loop: null
+      - action: lead_capture_form
+      - active_loop: lead_capture_form
+      - active_loop: null
+      - action: action_submit_lead_capture
+
+  - story: refinance lead flow
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_refinance
+      - action: utter_ask_loan_type
+      - intent: start_prequalification
+      - action: qualification_form
+      - active_loop: qualification_form
+      - active_loop: null
+      - action: lead_capture_form
+      - active_loop: lead_capture_form
+      - active_loop: null
+      - action: action_submit_lead_capture
+
+  - story: jumbo faq to lead flow
+    steps:
+      - intent: ask_jumbo_loan
+      - action: utter_faq_jumbo
+      - intent: request_consultation
+      - action: lead_capture_form
+      - active_loop: lead_capture_form
+      - active_loop: null
+      - action: action_submit_lead_capture
+
+  - story: callback request flow
+    steps:
+      - intent: request_callback
+      - action: callback_form
+      - active_loop: callback_form
+      - active_loop: null
+      - action: action_submit_callback
+
+  - story: existing lead followup flow
+    steps:
+      - intent: existing_lead_followup
+      - action: utter_followup_support
+      - action: followup_issue_form
+      - active_loop: followup_issue_form
+      - active_loop: null
+      - action: action_submit_followup

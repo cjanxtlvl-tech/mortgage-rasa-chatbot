@@ -1,0 +1,277 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - thank_you
+  - fallback
+  - ask_loan_types
+  - ask_purchase_loan
+  - ask_refinance
+  - ask_government_loan
+  - ask_jumbo_loan
+  - ask_investment_loan
+  - ask_hard_money_loan
+  - ask_sba_loan
+  - ask_commercial_loan
+  - ask_general_faq
+  - ask_service_area
+  - ask_business_services
+  - ask_property_types_supported
+  - request_callback
+  - request_consultation
+  - existing_lead_followup
+  - start_prequalification
+  - provide_name
+  - provide_email
+  - provide_phone
+  - provide_contact_info
+  - provide_loan_type
+  - provide_loan_purpose
+  - provide_property_type
+  - provide_occupancy_type
+  - provide_purchase_price
+  - provide_property_value
+  - provide_loan_amount
+  - provide_timeline
+  - provide_state
+  - provide_callback_time
+  - provide_notes
+  - provide_credit_score_range
+  - provide_numeric_credit_score
+  - unknown_credit_score
+  - decline_credit_score
+
+entities:
+  - full_name
+  - email
+  - phone_number
+  - loan_type
+  - loan_purpose
+  - property_type
+  - occupancy_type
+  - purchase_price
+  - property_value
+  - loan_amount
+  - timeline
+  - state
+  - callback_time
+  - notes
+  - credit_score_range
+  - credit_score_numeric
+
+slots:
+  full_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: full_name
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  loan_type:
+    type: categorical
+    values:
+      - purchase
+      - refinance
+      - government
+      - jumbo
+      - investment
+      - hard_money
+      - sba
+      - commercial
+      - unknown
+    mappings:
+      - type: from_entity
+        entity: loan_type
+  loan_purpose:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: loan_purpose
+  property_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: property_type
+  occupancy_type:
+    type: categorical
+    values:
+      - primary
+      - secondary
+      - investment
+      - mixed_use
+      - owner_occupied
+      - non_owner_occupied
+      - unknown
+    mappings:
+      - type: from_entity
+        entity: occupancy_type
+  purchase_price:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: purchase_price
+  property_value:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: property_value
+  loan_amount:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: loan_amount
+  timeline:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: timeline
+  state:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: state
+  callback_time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: callback_time
+  notes:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: notes
+      - type: from_text
+        conditions:
+          - active_loop: followup_issue_form
+            requested_slot: notes
+  credit_score_range:
+    type: categorical
+    values:
+      - exceptional
+      - very_good
+      - good
+      - fair
+      - poor
+      - unknown
+      - prefer_not_to_say
+    mappings:
+      - type: from_entity
+        entity: credit_score_range
+      - type: from_intent
+        intent: unknown_credit_score
+        value: unknown
+      - type: from_intent
+        intent: decline_credit_score
+        value: prefer_not_to_say
+  credit_score_numeric:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: credit_score_numeric
+
+responses:
+  utter_greet:
+    - text: "Hi, welcome to our mortgage team. I can help with loan options, quick pre-qualification, FAQs, or a callback request."
+
+  utter_ask_loan_type:
+    - text: "Which loan type are you most interested in: Purchase, Refinance, Government, Jumbo, Investment, Hard Money, SBA, or Commercial?"
+
+  utter_ask_loan_purpose:
+    - text: "What is the main purpose of this loan?"
+
+  utter_ask_occupancy_type:
+    - text: "Will the property be primary, secondary, or investment occupancy?"
+
+  utter_ask_property_type:
+    - text: "What property type are you looking at (single-family, condo, multi-unit, mixed-use, etc.)?"
+
+  utter_ask_timeline:
+    - text: "What is your timeline for moving forward?"
+
+  utter_ask_state:
+    - text: "Which state is the property located in?"
+
+  utter_ask_credit_score_range:
+    - text: "If you are comfortable sharing, what is your credit score range: Exceptional (800-850), Very Good (740-799), Good (670-739), Fair (580-669), or Poor (300-579)?"
+
+  utter_ask_full_name:
+    - text: "Could I get your full name for follow-up?"
+
+  utter_ask_email:
+    - text: "What is the best email address to reach you?"
+
+  utter_ask_phone:
+    - text: "What phone number should we use?"
+
+  utter_ask_callback_time:
+    - text: "What is the best time for a callback?"
+
+  utter_ask_notes:
+    - text: "Any additional notes you want us to include?"
+
+  utter_faq_jumbo:
+    - text: "Jumbo loans are typically used when the loan amount exceeds conforming limits. We can review your target amount, property type, and profile to guide next steps."
+
+  utter_faq_government:
+    - text: "Government-backed options may include FHA, VA, and USDA depending on eligibility. We can help identify likely fits based on your scenario."
+
+  utter_submit_confirmation:
+    - text: "Thanks, I have your details. A mortgage specialist will follow up shortly."
+
+  utter_followup_support:
+    - text: "I can help document your update and route it to the right team member for follow-up."
+
+  utter_fallback:
+    - text: "I did not catch that clearly. I can help with loan types, pre-qualification, FAQs, or callback requests."
+
+forms:
+  qualification_form:
+    required_slots:
+      - loan_type
+      - loan_purpose
+      - occupancy_type
+      - property_type
+      - timeline
+      - state
+      - credit_score_range
+
+  lead_capture_form:
+    required_slots:
+      - full_name
+      - email
+      - phone_number
+
+  callback_form:
+    required_slots:
+      - full_name
+      - phone_number
+      - callback_time
+      - notes
+
+  followup_issue_form:
+    required_slots:
+      - full_name
+      - email
+      - notes
+
+actions:
+  - validate_qualification_form
+  - validate_lead_capture_form
+  - action_submit_lead_capture
+  - action_submit_callback
+  - action_submit_followup
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

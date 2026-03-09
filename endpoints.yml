@@ -1,0 +1,11 @@
+# Action server endpoint.
+# Update this URL if your action server is hosted remotely.
+
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Optional tracker store, event broker, and lock store configurations can be added here.
+# tracker_store:
+#   type: redis
+#   url: localhost
+#   port: 6379

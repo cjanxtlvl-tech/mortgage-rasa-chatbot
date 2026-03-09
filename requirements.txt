@@ -1,0 +1,4 @@
+# Core runtime dependencies for the mortgage Rasa chatbot starter.
+# Pin major versions for stability while allowing patch/minor updates.
+rasa>=3.6,<4.0
+rasa-sdk>=3.6,<4.0

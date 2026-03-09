@@ -1,0 +1,90 @@
+version: "3.1"
+
+# Form blueprint file for developer reference.
+# Keep these definitions aligned with `domain.yml`.
+
+forms:
+  lead_capture_form:
+    required_slots:
+      - full_name
+      - email
+      - phone_number
+
+  qualification_form:
+    required_slots:
+      - loan_type
+      - loan_purpose
+      - occupancy_type
+      - property_type
+      - timeline
+      - state
+      - credit_score_range
+
+  callback_form:
+    required_slots:
+      - full_name
+      - phone_number
+      - callback_time
+      - notes
+
+  followup_issue_form:
+    required_slots:
+      - full_name
+      - email
+      - notes
+
+slot_mappings:
+  full_name:
+    - type: from_entity
+      entity: full_name
+
+  email:
+    - type: from_entity
+      entity: email
+
+  phone_number:
+    - type: from_entity
+      entity: phone_number
+
+  loan_type:
+    - type: from_entity
+      entity: loan_type
+
+  loan_purpose:
+    - type: from_entity
+      entity: loan_purpose
+
+  occupancy_type:
+    - type: from_entity
+      entity: occupancy_type
+
+  property_type:
+    - type: from_entity
+      entity: property_type
+
+  timeline:
+    - type: from_entity
+      entity: timeline
+
+  state:
+    - type: from_entity
+      entity: state
+
+  credit_score_range:
+    - type: from_entity
+      entity: credit_score_range
+    - type: from_intent
+      intent: unknown_credit_score
+      value: unknown
+    - type: from_intent
+      intent: decline_credit_score
+      value: prefer_not_to_say
+
+  callback_time:
+    - type: from_entity
+      entity: callback_time
+
+  notes:
+    - type: from_entity
+      entity: notes
+    - type: from_text

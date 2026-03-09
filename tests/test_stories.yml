@@ -1,0 +1,27 @@
+version: "3.1"
+
+stories:
+  - story: test greeting
+    steps:
+      - user: |
+          hi
+        intent: greet
+      - action: utter_greet
+
+  - story: test purchase flow
+    steps:
+      - user: |
+          I need a loan to buy a home
+        intent: ask_purchase_loan
+      - action: utter_ask_loan_type
+      - user: |
+          I want to get prequalified
+        intent: start_prequalification
+      - action: qualification_form
+
+  - story: test callback flow
+    steps:
+      - user: |
+          can someone call me back
+        intent: request_callback
+      - action: callback_form

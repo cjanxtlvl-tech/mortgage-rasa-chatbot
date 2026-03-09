@@ -1,0 +1,356 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - hey there
+      - good morning
+      - good afternoon
+      - hi team
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - talk to you later
+      - thanks bye
+
+  - intent: affirm
+    examples: |
+      - yes
+      - yep
+      - sounds good
+      - correct
+
+  - intent: deny
+    examples: |
+      - no
+      - nope
+      - not really
+      - I do not think so
+
+  - intent: thank_you
+    examples: |
+      - thanks
+      - thank you
+      - appreciate it
+      - thank you for the help
+
+  - intent: fallback
+    examples: |
+      - huh
+      - I do not understand
+      - that did not answer my question
+
+  - intent: ask_loan_types
+    examples: |
+      - what loan types do you offer
+      - which mortgage products do you have
+      - what kinds of loans can you help with
+      - show me your loan options
+
+  - intent: ask_purchase_loan
+    examples: |
+      - I need a loan to buy a home
+      - I am looking for a purchase mortgage
+      - can you help with a first time home purchase
+      - I want to finance a home purchase
+      - I am shopping for a purchase loan
+      - tell me about purchase loan options
+      - I am buying a house and need financing
+      - do you offer purchase mortgages
+      - I need prequalification for buying a home
+
+  - intent: ask_refinance
+    examples: |
+      - I want to refinance my current mortgage
+      - can you help me with a refinance
+      - I need a cash out refinance option
+      - I am looking at rate and term refinance
+      - do you offer refinancing
+      - I want to lower my monthly payment by refinancing
+      - can I refinance my home loan
+      - looking for refinance rates and options
+      - I want to pull equity out with a refinance
+
+  - intent: ask_government_loan
+    examples: |
+      - tell me about government backed loans
+      - do you offer FHA loans
+      - can you help with VA mortgage options
+      - I want to learn about USDA loans
+      - what government loan programs do you support
+      - is there a government loan for my situation
+      - I need info on FHA vs conventional
+      - can veterans use your loan services
+      - do you work with government mortgage programs
+
+  - intent: ask_jumbo_loan
+    examples: |
+      - do you do jumbo loans
+      - I need a jumbo mortgage
+      - what is required for a jumbo loan
+      - can you help with high balance mortgages
+      - I need financing above conforming limits
+      - tell me about jumbo loan options
+      - I am buying a higher priced property and need jumbo financing
+      - are jumbo loans available in my state
+      - I have a large loan amount and need guidance
+
+  - intent: ask_investment_loan
+    examples: |
+      - I need a loan for an investment property
+      - do you finance rental properties
+      - can I get mortgage options for investment homes
+      - I am buying a non owner occupied property
+      - investment property mortgage options please
+      - I want financing for a rental purchase
+      - can you help with investor loans
+      - what are my options for investment real estate financing
+      - I need prequalification for a rental property loan
+
+  - intent: ask_hard_money_loan
+    examples: |
+      - do you offer hard money loans
+      - I need short term hard money financing
+      - can you help with fix and flip funding
+      - I am looking for hard money options
+
+  - intent: ask_sba_loan
+    examples: |
+      - do you provide SBA loan help
+      - can you guide me on SBA financing
+      - I need information on SBA lending
+      - are SBA loans part of your services
+
+  - intent: ask_commercial_loan
+    examples: |
+      - I need a commercial mortgage
+      - do you finance commercial properties
+      - can you help with commercial real estate loans
+      - I am looking for a loan for office property
+      - I need commercial property financing options
+      - do you offer loans for retail or industrial properties
+      - I am buying a mixed use building and need financing
+      - I need a commercial loan consultation
+      - can I prequalify for a commercial real estate loan
+
+  - intent: ask_general_faq
+    examples: |
+      - how does your mortgage process work
+      - what documents are usually needed
+      - how long does prequalification take
+      - can you explain the basics
+
+  - intent: ask_service_area
+    examples: |
+      - what states do you serve
+      - do you work nationwide
+      - can you help in my state
+      - where are your services available
+
+  - intent: ask_business_services
+    examples: |
+      - what business lending services do you offer
+      - do you help business owners with financing
+      - what commercial and SBA services do you provide
+      - can your team help with business property loans
+
+  - intent: ask_property_types_supported
+    examples: |
+      - what property types are supported
+      - can you finance condos and multi units
+      - do you handle mixed use properties
+      - what kinds of properties do you lend on
+
+  - intent: request_callback
+    examples: |
+      - can someone call me back
+      - I would like a callback
+      - please have a loan officer call me
+      - can I schedule a call with your team
+      - call me later today
+      - I want to talk to a mortgage specialist by phone
+      - can we set up a consultation call
+      - please contact me by phone
+      - I need a callback about loan options
+
+  - intent: request_consultation
+    examples: |
+      - I want a mortgage consultation
+      - can I book a consultation
+      - I need to speak with an advisor
+      - please set up a consultation with your team
+
+  - intent: existing_lead_followup
+    examples: |
+      - I already submitted my info and need an update
+      - I am an existing lead and want to follow up
+      - can you check the status of my loan inquiry
+      - I have not heard back on my application inquiry
+      - I need follow up on my previous request
+      - I spoke with someone before and need help now
+      - can someone update me on my lead
+      - I already started this process and need a callback
+      - I need to escalate my existing mortgage inquiry
+
+  - intent: start_prequalification
+    examples: |
+      - I want to get prequalified
+      - can we start prequalification
+      - help me start a quick prequal
+      - I am ready to begin the qualification questions
+
+  - intent: provide_name
+    examples: |
+      - my name is [Alex Johnson](full_name)
+      - this is [Maria Lopez](full_name)
+      - [Jordan Patel](full_name)
+      - [Chris Taylor](full_name)
+
+  - intent: provide_email
+    examples: |
+      - my email is [alex@example.com](email)
+      - use [maria.lopez@email.com](email)
+      - [jpatel@sample.org](email)
+      - send details to [client.homebuyer@gmail.com](email)
+
+  - intent: provide_phone
+    examples: |
+      - my phone is [555-212-9876](phone_number)
+      - call me at [(415) 555-1020](phone_number)
+      - use [6465558899](phone_number)
+      - [303-555-7788](phone_number)
+
+  - intent: provide_contact_info
+    examples: |
+      - I am [Alex Rivera](full_name), email [alexr@mail.com](email), phone [555-332-1001](phone_number)
+      - name [Nina Shah](full_name), [nina@demo.com](email), [555-430-2210](phone_number)
+      - you can reach [Chris Wood](full_name) at [cwood@home.com](email) and [555-778-1099](phone_number)
+
+  - intent: provide_loan_type
+    examples: |
+      - I am looking for [purchase](loan_type)
+      - this is for [refinance](loan_type)
+      - [jumbo](loan_type)
+      - [commercial](loan_type)
+
+  - intent: provide_loan_purpose
+    examples: |
+      - the purpose is buying a new primary home
+      - I want to lower my rate
+      - I need cash out for renovations
+      - this is for rental income property purchase
+
+  - intent: provide_property_type
+    examples: |
+      - it is a single family home
+      - condo
+      - duplex
+      - mixed use property
+
+  - intent: provide_occupancy_type
+    examples: |
+      - it will be primary residence
+      - investment property
+      - second home
+      - non owner occupied
+
+  - intent: provide_purchase_price
+    examples: |
+      - purchase price is [650000](purchase_price)
+      - around [$420,000](purchase_price)
+      - about [1.1 million](purchase_price)
+      - target price [750k](purchase_price)
+
+  - intent: provide_property_value
+    examples: |
+      - current property value is [900000](property_value)
+      - it is worth about [$540,000](property_value)
+      - my home value is [1,250,000](property_value)
+      - estimated value [780k](property_value)
+
+  - intent: provide_loan_amount
+    examples: |
+      - I need about [500000](loan_amount)
+      - loan amount around [$350,000](loan_amount)
+      - looking to borrow [900k](loan_amount)
+      - around [1.4 million](loan_amount)
+
+  - intent: provide_timeline
+    examples: |
+      - I want to move in the next 30 days
+      - timeline is 2 to 3 months
+      - as soon as possible
+      - sometime this quarter
+
+  - intent: provide_state
+    examples: |
+      - I am in [California](state)
+      - property is in [Texas](state)
+      - [Florida](state)
+      - [New York](state)
+
+  - intent: provide_callback_time
+    examples: |
+      - call me [tomorrow morning](callback_time)
+      - [after 3 PM](callback_time) works best
+      - [weekday evenings](callback_time)
+      - [today around 5](callback_time)
+
+  - intent: provide_notes
+    examples: |
+      - please note I am self employed
+      - I have a recent credit event I want to discuss
+      - I need someone who can explain options slowly
+      - this is for a 4 unit property with mixed occupancy
+
+  - intent: provide_credit_score_range
+    examples: |
+      - my credit is [exceptional](credit_score_range)
+      - probably [very good](credit_score_range)
+      - I am in the [good](credit_score_range) range
+      - it is around [fair](credit_score_range)
+      - likely [poor](credit_score_range)
+      - I would say [very good](credit_score_range)
+      - put me as [good](credit_score_range)
+      - maybe [fair](credit_score_range)
+      - [exceptional](credit_score_range)
+
+  - intent: provide_numeric_credit_score
+    examples: |
+      - my score is [810](credit_score_numeric)
+      - credit score [760](credit_score_numeric)
+      - around [725](credit_score_numeric)
+      - it is [680](credit_score_numeric)
+      - last checked [640](credit_score_numeric)
+      - I am at [590](credit_score_numeric)
+      - approximately [705](credit_score_numeric)
+      - score is [845](credit_score_numeric)
+      - my FICO is [615](credit_score_numeric)
+
+  - intent: unknown_credit_score
+    examples: |
+      - I am not sure about my credit score
+      - I do not know my score
+      - not sure
+      - I have not checked recently
+      - unknown right now
+      - I am unsure of my range
+      - no idea what my score is
+      - I need to check first
+      - I am not certain
+
+  - intent: decline_credit_score
+    examples: |
+      - I prefer not to share that
+      - I do not want to provide my score
+      - I would rather skip the credit question
+      - prefer not to say
+      - I am not comfortable sharing credit details
+      - skip this question please
+      - I decline to answer that
+      - let's continue without that
+      - I do not want to disclose it
