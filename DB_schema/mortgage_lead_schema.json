@@ -1,0 +1,36 @@
+{
+	"type": "object",
+	"properties": {
+		"lead_id": { "type": "string" },
+		"created_at": { "type": "string", "format": "date-time" },
+		"product_type": { "type": "string" },
+		"first_name": { "type": "string" },
+		"last_name": { "type": "string" },
+		"phone": { "type": "string" },
+		"email": { "type": "string" },
+		"property_state": { "type": "string" },
+		"property_zip": { "type": "string" },
+		"property_type": { "type": "string" },
+		"loan_purpose": { "type": "string" },
+		"desired_loan_amount": { "type": "number" },
+		"estimated_property_value": { "type": "number" },
+		"credit_score_range": { "type": "string" },
+		"estimated_annual_income": { "type": "number" },
+		"employment_status": { "type": "string" },
+		"sms_consent": { "type": "boolean" },
+		"email_consent": { "type": "boolean" },
+		"utm_source": { "type": "string" },
+		"utm_campaign": { "type": "string" },
+		"landing_page": { "type": "string" },
+		"rasa_session_id": { "type": "string" }
+	},
+	"required": [
+		"lead_id",
+		"created_at",
+		"product_type",
+		"first_name",
+		"last_name",
+		"phone",
+		"email"
+	]
+}

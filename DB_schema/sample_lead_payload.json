@@ -1,0 +1,38 @@
+{
+	"lead": {
+		"lead_id": "lead_9f2c7a41",
+		"created_at": "2026-03-10T16:10:00Z",
+		"product_type": "purchase",
+		"first_name": "John",
+		"last_name": "Smith",
+		"phone": "7325551111",
+		"email": "john.smith@email.com",
+		"preferred_contact_method": "text",
+		"sms_consent": true,
+		"email_consent": true,
+		"landing_page": "/purchase-funnel",
+		"utm_source": "google",
+		"utm_campaign": "spring_purchase",
+		"rasa_session_id": "session_abc123"
+	},
+	"loan_scenario": {
+		"property_state": "NJ",
+		"property_zip": "08753",
+		"property_type": "single_family",
+		"occupancy_intent": "owner_occupied",
+		"loan_purpose": "purchase",
+		"desired_loan_amount": 350000,
+		"estimated_property_value": 450000,
+		"estimated_down_payment": 100000,
+		"credit_score_range": "good_670_739",
+		"estimated_annual_income": 125000,
+		"employment_status": "w2",
+		"timeframe_to_close": "30_days"
+	},
+	"product_details": {
+		"purchase_price": 450000,
+		"down_payment_percent": 22,
+		"under_contract": true,
+		"realtor_involved": true
+	}
+}
