@@ -1,33 +1,3 @@
-Create a developer documentation file named:
-
-loan_product_field_matrix.md
-
-The document should show which data fields apply to each mortgage loan product in a lead-generation funnel system.
-
-The purpose of the document is to help a developer understand exactly which fields are expected for each product when building forms, chatbot flows, APIs, and database models.
-
-Products:
-
-1. Purchase
-2. Refinance
-3. Government
-4. Jumbo
-5. Investment
-6. Hard Money
-7. SBA
-8. Commercial
-
-Use a markdown table matrix with the following legend:
-
-● = Required  
-○ = Optional  
-– = Not used
-
-Organize the document into three sections:
-
-1. Core Lead Fields (apply to all products)
-2. Loan Scenario Fields (borrower + property qualification)
-3. Product-Specific Fields
 
 Core Lead Fields:
 
