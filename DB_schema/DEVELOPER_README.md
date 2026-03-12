@@ -68,6 +68,16 @@ These can be stored in a JSON column during early development.
 3. Allow unknown values when users don't know exact numbers.
 4. Do not require exact credit score; use ranges.
 
+## Integration Alignment
+The internal DB schema uses `snake_case`, but external integration contracts use `camelCase`.
+
+- Webhook contract: `docs/api/WEBHOOK_SPEC.md`
+- Follow Up Boss contract: `docs/crm/FOLLOWUPBOSS_INTEGRATION.md`
+- System architecture: `docs/architecture/SYSTEM_OVERVIEW.md`
+
+Follow Up Boss submissions must use the Events endpoint (`/v1/events`) and the source `VeeCasa Funnel Site`.
+Use the mapping in `DB_schema/SUMMARY.md` and `DB_schema/mortgage_lead_field_map.csv` when transforming from DB records to webhook and CRM payloads.
+
 ## Submission Example
 
 See `sample_lead_payload.json`

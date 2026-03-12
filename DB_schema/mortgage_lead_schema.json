@@ -1,4 +1,6 @@
 {
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "MortgageLeadInternalRecord",
 	"type": "object",
 	"properties": {
 		"lead_id": { "type": "string" },
@@ -7,16 +9,23 @@
 		"first_name": { "type": "string" },
 		"last_name": { "type": "string" },
 		"phone": { "type": "string" },
-		"email": { "type": "string" },
+		"email": { "type": "string", "format": "email" },
+
+		"loan_purpose": { "type": "string" },
+		"credit_score_range": { "type": "string" },
+		"estimated_property_value": { "type": "number" },
+		"purchase_price": { "type": "number" },
+		"estimated_down_payment": { "type": "number" },
+		"timeframe_to_close": { "type": "string" },
+		"employment_status": { "type": "string" },
+		"notes_from_chatbot": { "type": "string" },
+
 		"property_state": { "type": "string" },
 		"property_zip": { "type": "string" },
 		"property_type": { "type": "string" },
-		"loan_purpose": { "type": "string" },
 		"desired_loan_amount": { "type": "number" },
-		"estimated_property_value": { "type": "number" },
-		"credit_score_range": { "type": "string" },
 		"estimated_annual_income": { "type": "number" },
-		"employment_status": { "type": "string" },
+
 		"sms_consent": { "type": "boolean" },
 		"email_consent": { "type": "boolean" },
 		"utm_source": { "type": "string" },
@@ -30,7 +39,11 @@
 		"product_type",
 		"first_name",
 		"last_name",
-		"phone",
-		"email"
+		"loan_purpose",
+		"employment_status"
+	],
+	"anyOf": [
+		{ "required": ["email"] },
+		{ "required": ["phone"] }
 	]
 }

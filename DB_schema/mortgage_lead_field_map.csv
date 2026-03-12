@@ -1,27 +1,23 @@
-field_name,data_type,required,description,example
-lead_id,uuid,yes,Unique id for the lead record,6f2d-abc
-created_at,datetime,yes,Lead creation timestamp,2026-03-10T15:00:00Z
-product_type,string,yes,Loan product selected,purchase
-first_name,string,yes,Lead first name,John
-last_name,string,yes,Lead last name,Smith
-phone,string,yes,Contact phone,7325551111
-email,string,yes,Contact email,john@email.com
-property_state,string,yes,State where property is located,NJ
-property_zip,string,yes,ZIP code of property,08753
-property_type,string,yes,Type of property,single_family
-occupancy_intent,string,no,Will borrower live in property,owner_occupied
-loan_purpose,string,yes,Purpose of loan,purchase
-desired_loan_amount,decimal,yes,Requested loan amount,350000
-estimated_property_value,decimal,no,Estimated property value,450000
-estimated_down_payment,decimal,no,Cash down payment estimate,50000
-credit_score_range,string,yes,Credit score category,good_670_739
-estimated_annual_income,decimal,yes,Borrower income estimate,125000
-employment_status,string,yes,Employment type,w2
-timeframe_to_close,string,no,Desired timeline,30_days
-sms_consent,boolean,yes,Permission to send SMS,true
-email_consent,boolean,yes,Permission to send email,true
-utm_source,string,no,Marketing attribution source,google
-utm_campaign,string,no,Marketing campaign,spring_refi
-landing_page,string,no,Entry funnel page,/purchase-funnel
-rasa_session_id,string,yes,Chatbot session id,session_abc123
+internal_field,data_type,required_internal,webhook_field,required_webhook,followupboss_field,description,example
+lead_id,uuid,yes,lead.leadId,no,event metadata,Internal lead identifier,lead_9f2c7a41
+created_at,datetime,yes,lead.createdAt,no,event metadata,Lead creation timestamp,2026-03-10T15:00:00Z
+product_type,string,yes,lead.productType,no,customFields.productType,Loan product selected,Refinance
+first_name,string,yes,lead.firstName,no,person.firstName,Lead first name,John
+last_name,string,yes,lead.lastName,no,person.lastName,Lead last name,Doe
+phone,string,yes,lead.phone,conditional (email or phone),person.phones[0].value,Contact phone,7325551212
+email,string,yes,lead.email,conditional (email or phone),person.emails[0].value,Contact email,john@example.com
+loan_purpose,string,yes,lead.loanPurpose,no,customFields.loanPurpose,Loan purpose,Cash Out Refinance
+credit_score_range,string,yes,lead.creditRange,no,customFields.estimatedCreditRange,Credit score category,670-739
+estimated_property_value,decimal,no,lead.purchasePrice,no,customFields.estimatedPurchasePrice,Estimated property or purchase value,450000
+purchase_price,decimal,no,lead.purchasePrice,no,customFields.estimatedPurchasePrice,Purchase scenario price,450000
+estimated_down_payment,decimal,no,lead.downPayment,no,customFields.estimatedDownPayment,Cash down payment estimate,45000
+timeframe_to_close,string,no,lead.timeline,no,customFields.timeline,Desired timeline,30-60 days
+employment_status,string,yes,lead.employmentStatus,no,customFields.employmentStatus,Employment type,W2
+notes_from_chatbot,string,no,lead.notesFromChatbot,no,customFields.notesFromChatbot,Conversation summary for loan team,User asked about FHA options.
+property_state,string,yes,lead.property.state,no,property.state,State where property is located,NJ
+property_zip,string,yes,lead.property.zip,no,property.zip,ZIP code of property,07753
+utm_source,string,no,lead.internalMeta.utmSource,no,event metadata,Marketing attribution source,google
+utm_campaign,string,no,lead.internalMeta.utmCampaign,no,event metadata,Marketing campaign,spring_refi
+landing_page,string,no,lead.internalMeta.landingPage,no,event metadata,Entry funnel page,/purchase-funnel
+rasa_session_id,string,yes,lead.internalMeta.rasaSessionId,no,event metadata,Chatbot session id,session_abc123
 
