@@ -71,6 +71,9 @@ These can be stored in a JSON column during early development.
 ## Integration Alignment
 The internal DB schema uses `snake_case`, but external integration contracts use `camelCase`.
 
+Loan product field standard:
+- `DB_schema/loan_product_field_requirements.md`
+
 - Webhook contract: `docs/api/WEBHOOK_SPEC.md`
 - Follow Up Boss contract: `docs/crm/FOLLOWUPBOSS_INTEGRATION.md`
 - System architecture: `docs/architecture/SYSTEM_OVERVIEW.md`

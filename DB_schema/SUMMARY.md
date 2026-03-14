@@ -3,6 +3,9 @@
 ## Purpose
 `DB_schema` defines the internal lead model used by the funnel and chatbot layers.
 
+Related product schema reference:
+- `DB_schema/loan_product_field_requirements.md` defines standardized fields for loan product records used by website, chatbot, CRM, and reporting flows.
+
 To align with integration docs:
 - Internal storage uses `snake_case`.
 - Webhook payloads in `docs/api/WEBHOOK_SPEC.md` use `camelCase`.
